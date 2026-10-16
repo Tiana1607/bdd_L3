@@ -32,13 +32,3 @@ INSERT INTO PLAT(nom, id_categorie, prix) VALUES
 ('Ranon''apango', 5, 500);
 
 ALTER TABLE PLAT ALTER COLUMN id_categorie SET NOT NULL;
-
--- Résultats 
-CREATE TABLE PLAT(
-    id_plat INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    id_categorie INT NOT NULL, -- modifié
-    nom VARCHAR(255) NOT NULL,
-    prix DECIMAL(10,0) NOT NULL,
-
-    FOREIGN KEY (id_categorie) REFERENCES CATEGORIEPLAT(id_categ_plat)
-);
