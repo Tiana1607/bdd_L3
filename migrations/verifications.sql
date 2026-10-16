@@ -1,0 +1,1 @@
+SELECT nom, prix FROM PLAT ORDER BY prix DESC;
