@@ -13,4 +13,10 @@ Modifié : colonne id_categorie de PLAT mis en NOT NULL
 
 > Piège : La raison de pourquoi on n'a pas fait ainsi est parce qu'il n'y a pas de gestion efficace des catégories du menu puisque si par exemple on utilise ce VARCHAR(), dans la vue, ce sera un champ libre, or tous les employés ne peuvent pas se souvenir de toutes les catégories déjà existantes et insérer ce qui leur passe par la tête, donc mauvaise gestion des plats car ils ne sont pas regroupés de manière homogène. De plus, en champ libre, on risque d'avoir des données superflus dans la base et donc potentiellement des difficultés à créer la carte avec les catégories, on ne saura pas combien de plats chaque catégorie possède de manière exacte. 
 
+# Étape 3 : Les commandes
+Nouveau :
+- COMMANDE(**id_commande**, date_commande)
+- LIGNE_COMMANDE(**id_ligne_commande**, **#id_commande**, **#id_plat**, quantite)
+
+> Piège : J'ai placé la quantité dans la table qui réceptionne les plats associés à la commande, donc LIGNE_COMMANDE
 
