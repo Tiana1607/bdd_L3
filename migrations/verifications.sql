@@ -24,3 +24,11 @@ FROM COMMANDE c
 LEFT JOIN CLIENT cl ON c.id_client = cl.id_client
 GROUP BY c.id_commande, cl.nom_client
 ORDER BY c.id_commande ASC;
+
+-- Vérif 5
+SELECT c.id_commande, s.nom_serveur, SUM(p.prix * lg.quantite) AS CA_serveur FROM COMMANDE c
+JOIN LIGNE_COMMANDE lg ON c.id_commande = lg.id_commande
+JOIN PLAT p ON p.id_plat = lg.id_plat
+JOIN SERVEUR s ON s.id_serveur = c.id_serveur
+GROUP BY c.id_commande, s.nom_serveur
+ORDER BY c.id_commande ASC;

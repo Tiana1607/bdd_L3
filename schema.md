@@ -28,3 +28,14 @@ Modifié :
 - COMMANDE(**#id_commande**, **#id_client?**, date_commande)
 
 > Piège : Ma clé étrangère n'est pas NOT NULL car le propriétaire voulait surtout se souvenir de ses habitués et les clients de passage non, donc le nom des clients de passage sera inconnue et donc NULL, d'où on peut faire la condition dans la requête de vérification. J'ai utilisé LEFT JOIN pour que la requête prenne toutes les lignes de la table COMMANDE et met NULL si aucune correspondance avec la table CLIENT
+
+# Étape 5 : Serveurs et tables
+Nouveau :
+- SALLE(**id_salle**, nom_salle)
+- SALLE_TABLE (**id_table**, #id_salle, numero_table)
+- SERVEUR(**id_serveur**, nom_serveur)
+
+Modifié :
+- COMMANDE(**#id_commande**, **#id_client?**, **#id_table?**, **#id_serveur**, date_commande, estaemporter)
+
+> Piège : Une table ici reçoit une commande, mais une commande ne possède pas forcément de table puisqu'il y a la possibilité d'emporter. Le nom `table` pose problème car c'est une syntaxe déjà présente de base dans Postgresql et donc il y a conflit.  
