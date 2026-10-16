@@ -32,3 +32,5 @@ INSERT INTO PLAT(nom, id_categorie, prix) VALUES
 ('Ranon''apango', 5, 500);
 
 ALTER TABLE PLAT ALTER COLUMN id_categorie SET NOT NULL;
+
+INSERT INTO CATEGORIEPLAT(nom_categorie) VALUES ('Viennoiserie');

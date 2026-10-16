@@ -20,3 +20,11 @@ Nouveau :
 
 > Piège : J'ai placé la quantité dans la table qui réceptionne les plats associés à la commande, donc LIGNE_COMMANDE
 
+# Étape 4 : Les habitués
+Nouveau :
+- CLIENT(**id_client**, nom_client)
+
+Modifié :
+- COMMANDE(**#id_commande**, **#id_client?**, date_commande)
+
+> Piège : Ma clé étrangère n'est pas NOT NULL car le propriétaire voulait surtout se souvenir de ses habitués et les clients de passage non, donc le nom des clients de passage sera inconnue et donc NULL, d'où on peut faire la condition dans la requête de vérification. J'ai utilisé LEFT JOIN pour que la requête prenne toutes les lignes de la table COMMANDE et met NULL si aucune correspondance avec la table CLIENT
